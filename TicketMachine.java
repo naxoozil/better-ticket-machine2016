@@ -98,4 +98,14 @@ public class TicketMachine
         balance = 0;
         return amountToRefund;
     }
+    
+    /**
+     * Returns the amount of money entered into the machine and empties it
+     */
+    public int emptyMachine ()
+    {
+        int devolver = balance;
+        balance = 0;
+        return devolver;
+    }
 }
