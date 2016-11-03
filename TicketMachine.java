@@ -104,8 +104,13 @@ public class TicketMachine
      */
     public int emptyMachine ()
     {
-        int devolver = balance;
-        balance = 0;
-        return devolver;
+        if (balance == 0){
+            int devolver = balance;
+            balance = 0;
+            return devolver;
+        }
+        else{
+            return -1;
+        }
     }
 }
