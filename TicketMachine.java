@@ -17,12 +17,15 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
+
+    private boolean premio;
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public TicketMachine(int cost)
+    public TicketMachine(int cost, boolean premium)
     {
         price = cost;
+        premio = premium;
         balance = 0;
         total = 0;
     }
@@ -67,6 +70,15 @@ public class TicketMachine
     public void printTicket()
     {
         if(balance >= price) {
+             if (premio == true){
+                System.out.println("Congratulations, you have received a second ticket without any cost");
+                System.out.println("##################");
+                System.out.println("# The BlueJ Line");
+                System.out.println("# Ticket");
+                System.out.println("# 0 cents.");
+                System.out.println("##################");
+                System.out.println();
+            }
             // Simulate the printing of a ticket.
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
@@ -85,8 +97,8 @@ public class TicketMachine
                 (price - balance) + " more cents.");
 
         }
-    }
 
+    }
     /**
      * Return the money in the balance.
      * The balance is cleared.
@@ -98,7 +110,7 @@ public class TicketMachine
         balance = 0;
         return amountToRefund;
     }
-    
+
     /**
      * Returns the amount of money entered into the machine and empties it
      */
