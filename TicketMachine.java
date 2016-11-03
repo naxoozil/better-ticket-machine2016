@@ -19,13 +19,16 @@ public class TicketMachine
     private int total;
 
     private boolean premio;
+    
+    private int numeroDeTicketsMax;
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public TicketMachine(int cost, boolean premium)
+    public TicketMachine(int cost, boolean premium , int numeroDeTicketsMax1)
     {
         price = cost;
         premio = premium;
+        numeroDeTicketsMax = numeroDeTicketsMax1;
         balance = 0;
         total = 0;
     }
@@ -69,7 +72,9 @@ public class TicketMachine
      */
     public void printTicket()
     {
-        if(balance >= price) {
+        if (numeroDeTicketsMax > 0){
+        }
+        else if(balance >= price) {
              if (premio == true){
                 System.out.println("Congratulations, you have received a second ticket without any cost");
                 System.out.println("##################");
@@ -97,7 +102,7 @@ public class TicketMachine
                 (price - balance) + " more cents.");
 
         }
-
+        numeroDeTicketsMax = numeroDeTicketsMax -1;
     }
     /**
      * Return the money in the balance.
